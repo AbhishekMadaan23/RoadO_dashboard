@@ -1,8 +1,9 @@
 import React from "react";
 
+//component for side menu
 const SideMenu = () => {
   return (
-    <div className="h-full w-[80px] flex flex-col items-center gap-6 pt-4 shadow-md">
+    <div className="h-full w-[80px] flex flex-col items-center gap-6 pt-4 shadow-xl">
       <svg
         width="32"
         height="29"

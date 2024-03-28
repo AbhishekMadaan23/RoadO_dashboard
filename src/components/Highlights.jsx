@@ -1,7 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+//higlihts component
+
 const Highlights = () => {
+  //useSelector is a hook that allows you to extract data from the Redux store state, using a selector function.
   const income = useSelector((state) => state.finance.income);
   const expense = useSelector((state) => state.finance.expense);
 
@@ -15,6 +18,7 @@ const Highlights = () => {
       <div className="flex justify-between gap-4 items-center my-4">
         <div className="flex-1 border-2 border-gray-400 p-2">
           <p className="text-xs text-gray-500">Income</p>
+          {/* //redux state */}
           <p className="text-lg bold text-green-600">{income} CAD</p>
           <p className="text-xs text-gray-500">2 payments recieved</p>
         </div>

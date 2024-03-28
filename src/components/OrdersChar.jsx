@@ -5,7 +5,6 @@ import { Doughnut } from "react-chartjs-2";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export default function OrdersChar(props) {
-  console.log("????????>>>>??????", props);
   const data = {
     labels: [],
     datasets: [
