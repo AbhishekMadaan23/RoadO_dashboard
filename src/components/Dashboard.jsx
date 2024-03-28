@@ -1,9 +1,15 @@
 import { Avatar } from "@mui/material";
 import React from "react";
 import OrdersChar from "./OrdersChar";
+import { useSelector } from "react-redux";
 // import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 
 const Dashboard = () => {
+  const orders = useSelector((state) => state.order);
+  const trips = useSelector((state) => state.trip);
+  const revenue = useSelector((state) => state.revenue);
+  const expenses = useSelector((state) => state.expense);
+
   return (
     <div className="flex-grow flex flex-col gap-4 bg-blue-50 p-3">
       {/* Heading and right side icons */}
@@ -59,105 +65,105 @@ const Dashboard = () => {
           <div className="text-sm font-semibold"> Orders </div>
           {/* chart */}
           <div className="flex justify-center items-center mx-auto w-28 h-28">
-            <OrdersChar />
+            <OrdersChar data={orders} />
           </div>
           {/* Chart Data */}
           <div className="flex flex-col gap-2">
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-yellow-200 to-yellow-300 ">
               <div>Upcoming</div>
-              <div>50</div>
+              <div>{orders.upcoming}</div>
             </div>
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-blue-200 to-blue-300 ">
               <div>Outgoing</div>
-              <div>50</div>
+              <div>{orders.outgoing}</div>
             </div>
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-green-200 to-green-300 ">
               <div>Completed</div>
-              <div>50</div>
+              <div>{orders.completed}</div>
             </div>
           </div>
         </div>
         {/* chart 2 */}
         <div className=" bg-white p-4 rounded-lg flex flex-col gap-4">
           {/* heading */}
-          <div className="text-sm font-semibold"> Orders </div>
+          <div className="text-sm font-semibold"> Trips </div>
           {/* chart */}
           <div className="flex justify-center items-center mx-auto w-28 h-28">
-            <OrdersChar />
+            <OrdersChar data={trips} />
           </div>
           {/* Chart Data */}
           <div className="flex flex-col gap-2">
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-yellow-200 to-yellow-300 ">
               <div>Upcoming</div>
-              <div>50</div>
+              <div>{trips.upcoming}</div>
             </div>
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-blue-200 to-blue-300 ">
               <div>Outgoing</div>
-              <div>50</div>
+              <div>{trips.outgoing}</div>
             </div>
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-green-200 to-green-300 ">
               <div>Completed</div>
-              <div>50</div>
+              <div>{trips.completed}</div>
             </div>
           </div>
         </div>
         {/* chart 3 */}
         <div className=" bg-white p-4 rounded-lg flex flex-col gap-4">
           {/* heading */}
-          <div className="text-sm font-semibold"> Orders </div>
+          <div className="text-sm font-semibold"> Revenue </div>
           {/* chart */}
           <div className="flex justify-center items-center mx-auto w-28 h-28">
-            <OrdersChar />
+            <OrdersChar data={revenue} />
           </div>
           {/* Chart Data */}
           <div className="flex flex-col gap-2">
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-yellow-200 to-yellow-300 ">
               <div>Upcoming</div>
-              <div>50</div>
+              <div>{revenue.upcoming}</div>
             </div>
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-blue-200 to-blue-300 ">
               <div>Outgoing</div>
-              <div>50</div>
+              <div>{revenue.outgoing}</div>
             </div>
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-green-200 to-green-300 ">
               <div>Completed</div>
-              <div>50</div>
+              <div>{revenue.completed}</div>
             </div>
           </div>
         </div>
         {/* chart 4 */}
         <div className=" bg-white p-4 rounded-lg flex flex-col gap-4">
           {/* heading */}
-          <div className="text-sm font-semibold"> Orders </div>
+          <div className="text-sm font-semibold"> Expenses </div>
           {/* chart */}
           <div className="flex justify-center items-center mx-auto w-28 h-28">
-            <OrdersChar />
+            <OrdersChar data={expenses} />
           </div>
           {/* Chart Data */}
           <div className="flex flex-col gap-2">
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-yellow-200 to-yellow-300 ">
-              <div>Upcoming</div>
-              <div>50</div>
+              <div>Freight Charges</div>
+              <div>{expenses.upcoming}</div>
             </div>
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-blue-200 to-blue-300 ">
-              <div>Outgoing</div>
-              <div>50</div>
+              <div>Driver Charges</div>
+              <div>{expenses.outgoing}</div>
             </div>
             {/* data */}
             <div className="flex justify-between text-sm p-1 rounded-lg bg-gradient-to-r from-white via-green-200 to-green-300 ">
-              <div>Completed</div>
-              <div>50</div>
+              <div>Others</div>
+              <div>{expenses.completed}</div>
             </div>
           </div>
         </div>

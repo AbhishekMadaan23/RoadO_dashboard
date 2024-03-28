@@ -4,27 +4,27 @@ import { Doughnut } from "react-chartjs-2";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-export const data = {
-  labels: [],
-  datasets: [
-    {
-      label: "# of Votes",
-      data: [5, 2, 3],
-      backgroundColor: [
-        "rgba(75, 192, 192, 0.2)",
-        "rgba(153, 102, 255, 0.2)",
-        "rgba(255, 159, 64, 0.2)",
-      ],
-      borderColor: [
-        "rgba(75, 192, 192, 1)",
-        "rgba(153, 102, 255, 1)",
-        "rgba(255, 159, 64, 1)",
-      ],
-      borderWidth: 1,
-    },
-  ],
-};
-
-export default function OrdersChar() {
+export default function OrdersChar(props) {
+  console.log("????????>>>>??????", props);
+  const data = {
+    labels: [],
+    datasets: [
+      {
+        label: "",
+        data: [props.data.upcoming, props.data.outgoing, props.data.completed],
+        backgroundColor: [
+          "rgba(255, 255, 0, 0.2)",
+          "rgba(0, 0, 255, 0.2)",
+          "rgba(0, 255, 0, 0.2)",
+        ],
+        borderColor: [
+          "rgba(255, 255, 0, 1)",
+          "rgba(0, 0, 255, 1)",
+          "rgba(0, 255, 0, 1)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  };
   return <Doughnut data={data} />;
 }

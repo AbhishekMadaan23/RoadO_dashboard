@@ -1,6 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Highlights = () => {
+  const income = useSelector((state) => state.finance.income);
+  const expense = useSelector((state) => state.finance.expense);
+
   return (
     <div className="h-full w-[500px] bg-white p-3">
       {/* heading */}
@@ -11,13 +15,13 @@ const Highlights = () => {
       <div className="flex justify-between gap-4 items-center my-4">
         <div className="flex-1 border-2 border-gray-400 p-2">
           <p className="text-xs text-gray-500">Income</p>
-          <p className="text-lg bold text-green-600">100000 CAD</p>
+          <p className="text-lg bold text-green-600">{income} CAD</p>
           <p className="text-xs text-gray-500">2 payments recieved</p>
         </div>
 
         <div className="flex-1 border-2 border-gray-400 p-2">
           <p className="text-xs text-gray-500">Expenses</p>
-          <p className="text-lg bold text-red-600">50000 CAD</p>
+          <p className="text-lg bold text-red-600">{expense} CAD</p>
           <p className="text-xs text-gray-500">5 payments recieved</p>
         </div>
       </div>
